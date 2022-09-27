@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Button from "./components/Button";
 import Input from "./components/Input";
 import LetterList from "./components/LetterList";
-import Word from "./components/Word";
+
 
 
 function App() {
@@ -30,9 +30,9 @@ function App() {
         onChange={e => setValue(e.target.value)}
         />
         <Button onClick={addLetter}>Добавить букву</Button>
-       
-       <LetterList  letters={letters}/>
-       <h1>Результат: </h1>
+      
+       <LetterList   letters={letters}/>
+       <h2 >Результат:  </h2>
 
     </div>
   );

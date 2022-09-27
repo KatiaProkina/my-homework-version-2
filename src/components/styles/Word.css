@@ -1,0 +1,4 @@
+.word{
+    width: min-content;
+    border: 2px solid black;
+}

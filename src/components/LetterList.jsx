@@ -1,11 +1,13 @@
 import React from "react";
 import Word from "./Word";
 
-const LetterList = ({letters}) =>{
+const LetterList = ({letters,addResult}) =>{
+
+
     return(
     <div>
          {letters.map((letter,index) =>
-               <Word number = {index+1} letter={letter} key={letter.id}/>
+               <Word addResult ={addResult} letter={letter} key={letter.id}/>
           )}
     </div>
     )

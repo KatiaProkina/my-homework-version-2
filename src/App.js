@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import Button from "./components/Button";
 import Input from "./components/Input";
 import LetterList from "./components/LetterList";
+import Word from "./components/Word";
 
 
 
@@ -11,28 +12,63 @@ function App() {
   ])
   const[value,setValue] = useState('')
 
+  const [result, setResult] = useState('')
+
   const addLetter = (e) =>{
       e.preventDefault()
+      if(value.length<=letters.length){
+         return;
+      }
+      
       const newLetter = {
         id: Date.now(),
-        value
+        value: value[letters.length]
       }
+     
        setLetters([...letters,newLetter])
   }
   // const addResult = ()=>{
   //     value = {body}
   // }
 
+    const formLetters = (str) =>{
+      let masStr = str.split('')
+      let masObjStr= masStr.map((item,index)=>{
+        return{
+          id: Date.now()+index+1,
+          value: item
+      }
+    
+      })
+      setLetters(masObjStr)
+      console.log(masObjStr)
+      
+    }
+
+    const onChange = (e)=>{
+        setValue(e.target.value)
+        formLetters(e.target.value)
+        setResult('')
+    }
+  
+  const addResult = (word)=>{
+      if(result.length == letters.length){
+        return;
+      }
+      setResult(result+word)
+
+  }
+
   return (
     <div className="App">
         <Input  type='text'
         value = {value}
-        onChange={e => setValue(e.target.value)}
+        onChange={onChange}
         />
         <Button onClick={addLetter}>Добавить букву</Button>
       
-       <LetterList   letters={letters}/>
-       <h2 >Результат:  </h2>
+       <LetterList addResult={addResult} letters={letters}/>
+       <h2 >Результат: {result} </h2>
 
     </div>
   );

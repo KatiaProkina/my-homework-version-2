@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Button from "./components/Button";
 import Input from "./components/Input";
 import LetterList from "./components/LetterList";
-import Word from "./components/Word";
+
 
 
 
@@ -14,21 +14,18 @@ function App() {
 
   const [result, setResult] = useState('')
 
-  const addLetter = (e) =>{
-      e.preventDefault()
-      if(value.length<=letters.length){
-         return;
-      }
+  // const addLetter = (e) =>{
+  //     e.preventDefault()
+  //     if(value.length<=letters.length){
+  //        return;
+  //     }
       
-      const newLetter = {
-        id: Date.now(),
-        value: value[letters.length]
-      }
+  //     const newLetter = {
+  //       id: Date.now(),
+  //       value: value[letters.length]
+  //     }
      
-       setLetters([...letters,newLetter])
-  }
-  // const addResult = ()=>{
-  //     value = {body}
+  //      setLetters([...letters,newLetter])
   // }
 
     const formLetters = (str) =>{
@@ -65,7 +62,7 @@ function App() {
         value = {value}
         onChange={onChange}
         />
-        <Button onClick={addLetter}>Добавить букву</Button>
+        {/* <Button onClick={addLetter}>Добавить букву</Button> */}
       
        <LetterList addResult={addResult} letters={letters}/>
        <h2 >Результат: {result} </h2>

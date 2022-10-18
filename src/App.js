@@ -45,7 +45,7 @@ function App() {
     const onChange = (e)=>{
         setValue(e.target.value)
         formLetters(e.target.value)
-        setResult('')
+        
     }
   
   const addResult = (word)=>{
